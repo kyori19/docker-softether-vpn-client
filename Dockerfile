@@ -1,16 +1,16 @@
 FROM alpine:3.8 as builder
-LABEL maintainer="Antoine Mary <antoinee.mary@gmail.com>" \
-      contributor="Dimitri G. <dev@dmgnx.net>"
+LABEL maintainer="kyori19 <kyori@accelf.net>"
 
 ### SET ENVIRONNEMENT
 ENV LANG="en_US.UTF-8"
 
 ### SETUP
+ARG version
 RUN set -ex ; \
     apk add --no-cache --update --virtual .build-deps \
       gcc g++ make musl-dev ncurses-dev openssl-dev readline-dev cmake git ; \
     # Fetch sources
-    git clone https://github.com/SoftEtherVPN/SoftEtherVPN_Stable.git ; \
+    git clone https://github.com/SoftEtherVPN/SoftEtherVPN_Stable.git -b ${version} ; \
     cd SoftEtherVPN_Stable ; \
     git submodule init && git submodule update ; \
     # Compile and Install

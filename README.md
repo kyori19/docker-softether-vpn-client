@@ -16,7 +16,7 @@ docker run --name=docker-softether-vpn-client \
     -e SE_HUB=TheHub \
     -e SE_USERNAME=vpnuser \
     -e SE_PASSWORD=Sup3rS3cr3t \
-    -d containinger/docker-softether-vpn-client:latest
+    -d kyori/softether-vpn-client:latest
 ```
 
 ### Compose file
@@ -26,7 +26,7 @@ version: "3"
 
 services:
   vpnclient:
-    image: containinger/docker-softether-vpn-client:latest
+    image: kyori/softether-vpn-client:latest
     container_name: docker-softether-vpn-client
     privileged: true
     cap_add:
@@ -49,7 +49,7 @@ version: "3"
 
 services:
   vpnclient:
-    image: containinger/docker-softether-vpn-client:latest
+    image: kyori/softether-vpn-client:latest
     container_name: guacamole-vpn
     privileged: true
     cap_add:
