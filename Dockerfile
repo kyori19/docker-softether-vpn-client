@@ -1,4 +1,4 @@
-FROM alpine:3.8 as builder
+FROM alpine:3.15 as builder
 LABEL maintainer="kyori19 <kyori@accelf.net>"
 
 ### SET ENVIRONNEMENT
@@ -8,7 +8,7 @@ ENV LANG="en_US.UTF-8"
 ARG version
 RUN set -ex ; \
     apk add --no-cache --update --virtual .build-deps \
-      gcc g++ make musl-dev ncurses-dev openssl-dev readline-dev cmake git ; \
+      gcc g++ make musl-dev ncurses-dev openssl-dev readline-dev zlib-dev cmake git ; \
     # Fetch sources
     git clone https://github.com/SoftEtherVPN/SoftEtherVPN_Stable.git -b ${version} ; \
     cd SoftEtherVPN_Stable ; \
